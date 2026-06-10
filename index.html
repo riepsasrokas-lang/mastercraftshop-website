@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Mastercraftshop — Handmade Wooden Pendant Lights</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f5f4f0;--white:#ffffff;--dark:#1e1e1c;
+  --text:#2a2a27;--muted:#7a7a74;--hint:#b0afa8;
+  --accent:#c8845a;--accent-light:#f5ece5;
+  --wood:#c8b898;--wood-dk:#4a3a28;
+  --border:rgba(30,30,28,0.09);
+  --radius:14px;--radius-sm:8px;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Inter',system-ui,sans-serif;
+  --shadow:0 4px 24px rgba(30,30,28,0.07);
+  --shadow-lg:0 8px 40px rgba(30,30,28,0.12);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);font-weight:300;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{display:block}
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:200;
+  background:rgba(245,244,240,0.92);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;height:64px;
+}
+.nav-logo{font-family:var(--serif);font-size:22px;font-weight:300;letter-spacing:0.04em;color:var(--dark)}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-size:13px;font-weight:400;color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--dark)}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-etsy{font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;padding:9px 20px;background:var(--accent);color:#fff;border-radius:24px;transition:opacity .2s}
+.nav-etsy:hover{opacity:.88}
+
+/* ── HERO ── */
+.hero{
+  min-height:88vh;
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;
+  padding:0 0 0 48px;
+  gap:0;overflow:hidden;
+  background:var(--white);
+}
+.hero-left{padding:80px 60px 80px 0;max-width:520px}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);padding:6px 14px;border-radius:20px;margin-bottom:28px}
+.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.hero-title{font-family:var(--serif);font-size:58px;font-weight:300;line-height:1.08;color:var(--dark);margin-bottom:22px}
+.hero-title em{font-style:italic;color:var(--accent)}
+.hero-desc{font-size:15px;line-height:1.75;color:var(--muted);margin-bottom:40px;max-width:400px}
+.hero-actions{display:flex;gap:16px;align-items:center;margin-bottom:52px}
+.btn-fill{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;padding:14px 28px;background:var(--accent);color:#fff;border-radius:28px;transition:opacity .2s,transform .15s}
+.btn-fill:hover{opacity:.9;transform:translateY(-1px)}
+.btn-fill svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2}
+.btn-outline{display:inline-flex;align-items:center;font-size:13px;font-weight:400;padding:14px 28px;border:1.5px solid var(--border);border-radius:28px;color:var(--muted);transition:border-color .2s,color .2s}
+.btn-outline:hover{border-color:var(--dark);color:var(--dark)}
+.hero-stats{display:flex;gap:36px}
+.stat-num{font-family:var(--serif);font-size:28px;font-weight:300;color:var(--dark);display:block;line-height:1}
+.stat-lbl{font-size:11px;color:var(--muted);margin-top:4px;letter-spacing:0.04em}
+
+/* hero right — photo mosaic */
+.hero-right{
+  height:88vh;position:relative;
+  background:linear-gradient(145deg,#ede9e1 0%,#d8d0c4 100%);
+  overflow:hidden;
+}
+.hero-img-main{
+  position:absolute;right:0;top:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  opacity:.92;
+}
+.hero-pill{
+  position:absolute;bottom:40px;left:32px;
+  background:rgba(255,255,255,0.94);
+  backdrop-filter:blur(8px);
+  border-radius:16px;padding:18px 22px;
+  box-shadow:var(--shadow-lg);
+  min-width:200px;
+}
+.hero-pill-stars{display:flex;gap:3px;margin-bottom:8px}
+.hero-pill-star{width:14px;height:14px;fill:var(--accent)}
+.hero-pill-text{font-size:13px;font-weight:500;color:var(--dark);margin-bottom:2px}
+.hero-pill-sub{font-size:11px;color:var(--muted)}
+
+/* ── MARQUEE ── */
+.marquee-wrap{background:var(--dark);padding:14px 0;overflow:hidden;white-space:nowrap}
+.marquee-track{display:inline-block;animation:marquee 32s linear infinite}
+.marquee-track span{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin:0 32px}
+.marquee-track span.dot{color:var(--wood);margin:0}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── SECTION SHARED ── */
+.section-wrap{padding:88px 48px}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:44px}
+.section-label{font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.section-title{font-family:var(--serif);font-size:40px;font-weight:300;color:var(--dark);line-height:1.1}
+.section-link{font-size:13px;color:var(--muted);border-bottom:1px solid var(--hint);padding-bottom:2px;transition:color .2s,border-color .2s}
+.section-link:hover{color:var(--accent);border-color:var(--accent)}
+
+/* ── FEATURED HERO CARD (top bestseller) ── */
+.featured-card{
+  display:grid;grid-template-columns:1fr 1fr;
+  background:var(--white);border-radius:var(--radius);
+  overflow:hidden;box-shadow:var(--shadow);
+  margin-bottom:28px;cursor:pointer;
+  transition:box-shadow .3s,transform .2s;
+}
+.featured-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px)}
+.featured-img{height:480px;overflow:hidden;background:#e8e3d8}
+.featured-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.featured-card:hover .featured-img img{transform:scale(1.04)}
+.featured-body{padding:52px 48px;display:flex;flex-direction:column;justify-content:space-between}
+.featured-badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);padding:5px 12px;border-radius:16px;margin-bottom:20px;width:fit-content}
+.featured-name{font-family:var(--serif);font-size:34px;font-weight:300;color:var(--dark);line-height:1.2;margin-bottom:16px}
+.featured-desc{font-size:13px;line-height:1.75;color:var(--muted);margin-bottom:28px}
+.featured-price-row{display:flex;align-items:baseline;gap:12px;margin-bottom:12px}
+.featured-price{font-family:var(--serif);font-size:36px;font-weight:300;color:var(--dark)}
+.featured-was{font-size:16px;color:var(--hint);text-decoration:line-through}
+.featured-save{font-size:11px;font-weight:500;background:var(--accent);color:#fff;padding:4px 10px;border-radius:12px}
+.featured-favs{font-size:12px;color:var(--muted);margin-bottom:32px}
+.featured-cta{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;padding:13px 26px;background:var(--dark);color:#fff;border-radius:24px;width:fit-content;transition:background .2s}
+.featured-cta:hover{background:var(--accent)}
+
+/* ── PRODUCT GRID ── */
+.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.product-card{
+  background:var(--white);border-radius:var(--radius);
+  overflow:hidden;cursor:pointer;
+  box-shadow:0 2px 12px rgba(30,30,28,0.05);
+  transition:box-shadow .3s,transform .2s;
+  display:flex;flex-direction:column;
+}
+.product-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px)}
+.product-thumb{
+  position:relative;overflow:hidden;
+  aspect-ratio:1;background:#ece8e0;
+}
+.product-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
+.product-card:hover .product-thumb img{transform:scale(1.06)}
+.product-sale-pill{
+  position:absolute;top:12px;right:12px;
+  font-size:10px;font-weight:500;letter-spacing:0.06em;
+  background:var(--accent);color:#fff;
+  padding:4px 10px;border-radius:12px;
+}
+.product-hot-pill{
+  position:absolute;top:12px;left:12px;
+  font-size:10px;font-weight:500;
+  background:rgba(255,255,255,0.9);color:var(--dark);
+  padding:4px 10px;border-radius:12px;
+}
+.product-body{padding:16px 18px 20px;flex:1;display:flex;flex-direction:column;justify-content:space-between}
+.product-name{font-size:13px;font-weight:400;color:var(--dark);line-height:1.4;margin-bottom:10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.product-bottom{display:flex;align-items:center;justify-content:space-between}
+.price-group{display:flex;align-items:baseline;gap:7px}
+.price-now{font-family:var(--serif);font-size:20px;font-weight:300;color:var(--dark)}
+.price-was{font-size:12px;color:var(--hint);text-decoration:line-through}
+.product-btn{width:32px;height:32px;border-radius:50%;background:var(--accent-light);display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;transition:background .2s}
+.product-card:hover .product-btn{background:var(--accent);color:#fff}
+
+/* ── FILTER BAR ── */
+.filter-bar{display:flex;gap:10px;margin-bottom:32px;flex-wrap:wrap}
+.filter-btn{font-size:12px;font-weight:400;padding:8px 20px;border-radius:20px;border:1.5px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;transition:all .2s}
+.filter-btn.active,.filter-btn:hover{background:var(--dark);color:#fff;border-color:var(--dark)}
+
+/* ── STATS ROW ── */
+.stats-row{
+  background:var(--dark);border-radius:var(--radius);
+  display:grid;grid-template-columns:repeat(4,1fr);
+  overflow:hidden;margin:0 48px;
+}
+.stat-block{padding:40px 36px;text-align:center;border-right:1px solid rgba(255,255,255,0.07)}
+.stat-block:last-child{border-right:none}
+.stat-big{font-family:var(--serif);font-size:44px;font-weight:300;color:#fff;display:block;margin-bottom:6px}
+.stat-sub{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4)}
+
+/* ── STORY ── */
+.story-section{
+  display:grid;grid-template-columns:5fr 4fr;
+  gap:60px;align-items:center;
+}
+.story-img-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.story-img-big{border-radius:var(--radius);overflow:hidden;aspect-ratio:0.85;background:#e8e3d8;grid-row:span 2}
+.story-img-big img,.story-img-sm img{width:100%;height:100%;object-fit:cover;display:block}
+.story-img-sm{border-radius:var(--radius);overflow:hidden;aspect-ratio:1.2;background:#e8e3d8}
+.story-right{}
+.story-tag{font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.story-title{font-family:var(--serif);font-size:38px;font-weight:300;color:var(--dark);line-height:1.2;margin-bottom:20px}
+.story-quote{font-family:var(--serif);font-size:20px;font-style:italic;color:var(--muted);line-height:1.6;margin-bottom:24px;padding-left:20px;border-left:2px solid var(--wood)}
+.story-body{font-size:13px;line-height:1.85;color:var(--muted);margin-bottom:32px}
+.story-author{display:flex;align-items:center;gap:14px}
+.story-avatar{width:44px;height:44px;border-radius:50%;background:var(--accent-light);border:2px solid var(--wood);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:18px;color:var(--accent);flex-shrink:0}
+.story-name{font-size:13px;font-weight:500;color:var(--dark)}
+.story-role{font-size:11px;color:var(--muted);margin-top:2px}
+
+/* ── REVIEWS ── */
+.reviews-section{background:var(--white);padding:88px 48px}
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.review-card{background:var(--bg);border-radius:var(--radius);padding:28px 26px}
+.review-stars{display:flex;gap:3px;margin-bottom:14px}
+.r-star{width:13px;height:13px;fill:var(--accent)}
+.review-text{font-size:13px;line-height:1.75;color:var(--muted);font-style:italic;margin-bottom:18px}
+.review-author{font-size:12px;font-weight:500;color:var(--dark)}
+.review-country{font-size:12px;color:var(--hint);margin-top:2px}
+
+/* ── CUSTOM CTA ── */
+.cta-section{
+  margin:0 48px 88px;
+  background:var(--accent);
+  border-radius:var(--radius);
+  padding:64px 72px;
+  display:grid;grid-template-columns:1fr auto;
+  gap:40px;align-items:center;
+}
+.cta-label{font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:14px}
+.cta-title{font-family:var(--serif);font-size:42px;font-weight:300;color:#fff;line-height:1.15;margin-bottom:14px}
+.cta-desc{font-size:14px;color:rgba(255,255,255,0.75);line-height:1.7;max-width:480px}
+.cta-btns{display:flex;flex-direction:column;gap:12px;align-items:stretch;flex-shrink:0}
+.btn-white{display:block;text-align:center;font-size:13px;font-weight:500;padding:14px 32px;background:#fff;color:var(--accent);border-radius:28px;white-space:nowrap;transition:opacity .2s}
+.btn-white:hover{opacity:.92}
+.btn-white-outline{display:block;text-align:center;font-size:13px;font-weight:400;padding:14px 32px;border:1.5px solid rgba(255,255,255,0.5);color:#fff;border-radius:28px;white-space:nowrap;transition:border-color .2s}
+.btn-white-outline:hover{border-color:#fff}
+
+/* ── FOOTER ── */
+footer{background:var(--dark);padding:64px 48px 36px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:60px;margin-bottom:52px}
+.footer-logo{font-family:var(--serif);font-size:24px;font-weight:300;color:#fff;margin-bottom:14px}
+.footer-logo span{color:var(--wood)}
+.footer-desc{font-size:12px;line-height:1.8;color:rgba(255,255,255,0.4);max-width:240px}
+.footer-col-title{font-size:10px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:20px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:12px}
+.footer-links a{font-size:13px;color:rgba(255,255,255,0.55);transition:color .2s}
+.footer-links a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.07);padding-top:28px;display:flex;justify-content:space-between;align-items:center}
+.footer-copy{font-size:11px;color:rgba(255,255,255,0.28)}
+.footer-social{display:flex;gap:20px}
+.footer-social a{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);transition:color .2s}
+.footer-social a:hover{color:#fff}
+
+/* ── LIGHTBOX ── */
+.lb-overlay{position:fixed;inset:0;background:rgba(20,20,18,0.85);z-index:500;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+.lb-overlay.open{display:flex}
+.lb-box{background:#fff;border-radius:20px;max-width:880px;width:100%;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,0.3);max-height:90vh}
+.lb-photo{background:#ece8e0;overflow:hidden;position:relative}
+.lb-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.lb-close{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;background:rgba(0,0,0,0.35);border:none;color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:10}
+.lb-close:hover{background:rgba(0,0,0,0.6)}
+.lb-body{padding:44px 40px;overflow-y:auto;display:flex;flex-direction:column;justify-content:space-between}
+.lb-tag{font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.lb-title{font-family:var(--serif);font-size:26px;font-weight:300;color:var(--dark);line-height:1.25;margin-bottom:22px}
+.lb-price-row{display:flex;align-items:baseline;gap:10px;margin-bottom:8px}
+.lb-price{font-family:var(--serif);font-size:34px;font-weight:300;color:var(--dark)}
+.lb-was{font-size:15px;color:var(--hint);text-decoration:line-through}
+.lb-save{font-size:11px;font-weight:500;background:var(--accent);color:#fff;padding:3px 10px;border-radius:10px}
+.lb-favs{font-size:12px;color:var(--muted);margin-bottom:28px}
+.lb-feats{list-style:none;margin-bottom:32px;display:flex;flex-direction:column;gap:0}
+.lb-feats li{font-size:12px;color:var(--muted);padding:9px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.lb-feats li::before{content:'✓';color:var(--accent);font-weight:500;font-size:13px}
+.lb-cta{display:block;text-align:center;font-size:13px;font-weight:500;padding:14px;background:var(--accent);color:#fff;border-radius:28px;transition:opacity .2s;margin-bottom:10px}
+.lb-cta:hover{opacity:.9}
+.lb-cta2{display:block;text-align:center;font-size:12px;padding:12px;border:1.5px solid var(--border);border-radius:28px;color:var(--muted);transition:border-color .2s,color .2s}
+.lb-cta2:hover{border-color:var(--dark);color:var(--dark)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1100px){
+  nav,footer{padding-left:32px;padding-right:32px}
+  .hero{padding-left:32px}
+  .hero-left{padding-right:40px}
+  .hero-title{font-size:46px}
+  .section-wrap{padding:64px 32px}
+  .product-grid{grid-template-columns:repeat(3,1fr)}
+  .stats-row{margin:0 32px}
+  .cta-section{margin:0 32px 64px}
+  .reviews-section{padding:64px 32px}
+  .story-section{grid-template-columns:1fr;gap:40px}
+  .story-img-grid{max-width:500px}
+}
+@media(max-width:760px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr;padding:0;min-height:auto}
+  .hero-left{padding:48px 20px 40px;max-width:100%}
+  .hero-title{font-size:38px}
+  .hero-right{height:55vw;min-height:260px}
+  .section-wrap{padding:48px 20px}
+  .section-head{flex-direction:column;align-items:flex-start;gap:12px}
+  .product-grid{grid-template-columns:repeat(2,1fr);gap:14px}
+  .featured-card{grid-template-columns:1fr}
+  .featured-img{height:280px}
+  .stats-row{grid-template-columns:repeat(2,1fr);margin:0 20px}
+  .cta-section{grid-template-columns:1fr;margin:0 20px 48px;padding:40px 28px}
+  .reviews-section{padding:48px 20px}
+  .review-grid{grid-template-columns:1fr}
+  footer{padding:48px 20px 28px}
+  .footer-grid{grid-template-columns:1fr;gap:36px}
+  .footer-bottom{flex-direction:column;gap:12px;text-align:center}
+  .lb-box{grid-template-columns:1fr;max-height:85vh}
+  .lb-photo{height:260px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Mastercraftshop</a>
+  <ul class="nav-links">
+    <li><a href="#bestsellers">Bestsellers</a></li>
+    <li><a href="#shop">Shop</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="https://www.etsy.com/shop/MastercraftShop" target="_blank" class="nav-etsy">Shop on Etsy</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Handmade in Lithuania</div>
+    <h1 class="hero-title">Modern Wood<br>Pendant <em>Lights</em></h1>
+    <p class="hero-desc">Geometric wooden pendant lights designed and crafted to order in a small workshop in Klaipėda. Ships worldwide in 1–3 days.</p>
+    <div class="hero-actions">
+      <a href="#bestsellers" class="btn-fill">
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Browse collection
+      </a>
+      <a href="#about" class="btn-outline">Our story</a>
+    </div>
+    <div class="hero-stats">
+      <div><span class="stat-num">6 000+</span><span class="stat-lbl">Orders shipped</span></div>
+      <div><span class="stat-num">5.0 ★</span><span class="stat-lbl">1 800+ reviews</span></div>
+      <div><span class="stat-num">9 yrs</span><span class="stat-lbl">On Etsy</span></div>
+    </div>
+  </div>
+
+  <div class="hero-right" style="display:flex;flex-direction:column;align-items:center;justify-content:center;background:#f5f4f0;padding:40px 20px 32px;">
+
+    <svg viewBox="0 0 620 430" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:520px;display:block;">
+      <defs>
+        <radialGradient id="hg2" cx="50%" cy="42%" r="52%">
+          <stop offset="0%"   stop-color="#fff8d0" stop-opacity="1"/>
+          <stop offset="32%"  stop-color="#f8b838" stop-opacity="0.82"/>
+          <stop offset="68%"  stop-color="#e07010" stop-opacity="0.32"/>
+          <stop offset="100%" stop-color="#c04808" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="amb2" cx="50%" cy="50%" r="50%">
+          <stop offset="0%"   stop-color="#ffe880" stop-opacity="0.38"/>
+          <stop offset="60%"  stop-color="#e08820" stop-opacity="0.10"/>
+          <stop offset="100%" stop-color="#c06010" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="cone2" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#f0a030" stop-opacity="0.18"/>
+          <stop offset="100%" stop-color="#e06010" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="sock2" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"  stop-color="#6a6460"/>
+          <stop offset="100%" stop-color="#2a2420"/>
+        </linearGradient>
+      </defs>
+
+      <!-- Cord -->
+      <line x1="310" y1="0" x2="310" y2="78" stroke="#1e1c1a" stroke-width="2.6"/>
+
+      <!-- Ambient glow (behind lamp) -->
+      <ellipse id="si-amb" cx="310" cy="209" rx="180" ry="105" fill="url(#amb2)" opacity="0"/>
+
+      <!-- Light cone downward -->
+      <path id="si-cone" d="M 262 315 L 148 428 L 472 428 L 358 315 Z" fill="url(#cone2)" opacity="0"/>
+      <ellipse id="si-pool" cx="310" cy="425" rx="118" ry="13" fill="#f09818" opacity="0"/>
+
+      <!-- ══ 20 RIBS (back to front) ══ -->
+    <path d="M 316.0 108 C 308.7 146.4, 309.2 176.7, 307.6 209 C 309.2 241.3, 308.7 271.6, 316.0 310 L 304.0 310 C 311.3 271.6, 310.8 241.3, 312.4 209 C 310.8 176.7, 311.3 146.4, 304.0 108 Z" fill="rgb(90,50,20)" stroke="rgb(30,15,5)" stroke-width="0.6" opacity="0.38"/>
+    <path d="M 315.7 108 C 342.4 146.4, 365.5 176.7, 368.8 209 C 365.5 241.3, 342.4 271.6, 315.7 310 L 304.3 310 C 344.9 271.6, 367.1 241.3, 373.6 209 C 367.1 176.7, 344.9 146.4, 304.3 108 Z" fill="rgb(102,59,24)" stroke="rgb(33,16,5)" stroke-width="0.6" opacity="0.44"/>
+    <path d="M 315.7 108 C 275.1 146.4, 252.9 176.7, 246.4 209 C 252.9 241.3, 275.1 271.6, 315.7 310 L 304.3 310 C 277.6 271.6, 254.5 241.3, 251.2 209 C 254.5 176.7, 277.6 146.4, 304.3 108 Z" fill="rgb(102,59,24)" stroke="rgb(33,16,5)" stroke-width="0.6" opacity="0.44"/>
+    <path d="M 314.9 108 C 372.7 146.4, 416.2 176.7, 424.0 209 C 416.2 241.3, 372.7 271.6, 314.9 310 L 305.1 310 C 375.3 271.6, 417.9 241.3, 428.8 209 C 417.9 176.7, 375.3 146.4, 305.1 108 Z" fill="rgb(114,68,28)" stroke="rgb(36,18,6)" stroke-width="0.6" opacity="0.5"/>
+    <path d="M 314.9 108 C 244.7 146.4, 202.1 176.7, 191.2 209 C 202.1 241.3, 244.7 271.6, 314.9 310 L 305.1 310 C 247.3 271.6, 203.8 241.3, 196.0 209 C 203.8 176.7, 247.3 146.4, 305.1 108 Z" fill="rgb(114,68,28)" stroke="rgb(36,18,6)" stroke-width="0.6" opacity="0.5"/>
+    <path d="M 313.5 108 C 396.8 146.4, 456.5 176.7, 467.8 209 C 456.5 241.3, 396.8 271.6, 313.5 310 L 306.5 310 C 399.4 271.6, 458.2 241.3, 472.6 209 C 458.2 176.7, 399.4 146.4, 306.5 108 Z" fill="rgb(126,77,32)" stroke="rgb(39,19,6)" stroke-width="0.6" opacity="0.57"/>
+    <path d="M 313.5 108 C 220.6 146.4, 161.8 176.7, 147.4 209 C 161.8 241.3, 220.6 271.6, 313.5 310 L 306.5 310 C 223.2 271.6, 163.5 241.3, 152.2 209 C 163.5 176.7, 223.2 146.4, 306.5 108 Z" fill="rgb(126,77,32)" stroke="rgb(39,19,6)" stroke-width="0.6" opacity="0.57"/>
+    <path d="M 311.9 108 C 412.3 146.4, 482.4 176.7, 495.9 209 C 482.4 241.3, 412.3 271.6, 311.9 310 L 308.1 310 C 414.8 271.6, 484.1 241.3, 500.7 209 C 484.1 176.7, 414.8 146.4, 308.1 108 Z" fill="rgb(138,86,36)" stroke="rgb(42,21,7)" stroke-width="0.6" opacity="0.63"/>
+    <path d="M 311.9 108 C 205.2 146.4, 135.9 176.7, 119.3 209 C 135.9 241.3, 205.2 271.6, 311.9 310 L 308.1 310 C 207.7 271.6, 137.6 241.3, 124.1 209 C 137.6 176.7, 207.7 146.4, 308.1 108 Z" fill="rgb(138,86,36)" stroke="rgb(42,21,7)" stroke-width="0.6" opacity="0.63"/>
+    <path d="M 310.0 108 C 417.6 146.4, 491.3 176.7, 505.6 209 C 491.3 241.3, 417.6 271.6, 310.0 310 L 310.0 310 C 420.2 271.6, 493.0 241.3, 510.4 209 C 493.0 176.7, 420.2 146.4, 310.0 108 Z" fill="rgb(150,95,40)" stroke="rgb(45,22,7)" stroke-width="0.6" opacity="0.69"/>
+    <path d="M 310.0 108 C 199.8 146.4, 127.0 176.7, 109.6 209 C 127.0 241.3, 199.8 271.6, 310.0 310 L 310.0 310 C 202.4 271.6, 128.7 241.3, 114.4 209 C 128.7 176.7, 202.4 146.4, 310.0 108 Z" fill="rgb(150,95,40)" stroke="rgb(45,22,7)" stroke-width="0.6" opacity="0.69"/>
+    <path d="M 308.1 108 C 412.3 146.4, 482.4 176.7, 495.9 209 C 482.4 241.3, 412.3 271.6, 308.1 310 L 311.9 310 C 414.8 271.6, 484.1 241.3, 500.7 209 C 484.1 176.7, 414.8 146.4, 311.9 108 Z" fill="rgb(162,104,44)" stroke="rgb(48,24,8)" stroke-width="0.6" opacity="0.75"/>
+    <path d="M 308.1 108 C 205.2 146.4, 135.9 176.7, 119.3 209 C 135.9 241.3, 205.2 271.6, 308.1 310 L 311.9 310 C 207.7 271.6, 137.6 241.3, 124.1 209 C 137.6 176.7, 207.7 146.4, 311.9 108 Z" fill="rgb(162,104,44)" stroke="rgb(48,24,8)" stroke-width="0.6" opacity="0.75"/>
+    <path d="M 306.5 108 C 396.8 146.4, 456.5 176.7, 467.8 209 C 456.5 241.3, 396.8 271.6, 306.5 310 L 313.5 310 C 399.4 271.6, 458.2 241.3, 472.6 209 C 458.2 176.7, 399.4 146.4, 313.5 108 Z" fill="rgb(174,113,48)" stroke="rgb(51,25,8)" stroke-width="0.6" opacity="0.81"/>
+    <path d="M 306.5 108 C 220.6 146.4, 161.8 176.7, 147.4 209 C 161.8 241.3, 220.6 271.6, 306.5 310 L 313.5 310 C 223.2 271.6, 163.5 241.3, 152.2 209 C 163.5 176.7, 223.2 146.4, 313.5 108 Z" fill="rgb(174,113,48)" stroke="rgb(51,25,8)" stroke-width="0.6" opacity="0.81"/>
+    <path d="M 305.1 108 C 372.7 146.4, 416.2 176.7, 424.0 209 C 416.2 241.3, 372.7 271.6, 305.1 310 L 314.9 310 C 375.3 271.6, 417.9 241.3, 428.8 209 C 417.9 176.7, 375.3 146.4, 314.9 108 Z" fill="rgb(186,122,52)" stroke="rgb(54,27,9)" stroke-width="0.6" opacity="0.88"/>
+    <path d="M 305.1 108 C 244.7 146.4, 202.1 176.7, 191.2 209 C 202.1 241.3, 244.7 271.6, 305.1 310 L 314.9 310 C 247.3 271.6, 203.8 241.3, 196.0 209 C 203.8 176.7, 247.3 146.4, 314.9 108 Z" fill="rgb(186,122,52)" stroke="rgb(54,27,9)" stroke-width="0.6" opacity="0.88"/>
+    <path d="M 304.3 108 C 342.4 146.4, 365.5 176.7, 368.8 209 C 365.5 241.3, 342.4 271.6, 304.3 310 L 315.7 310 C 344.9 271.6, 367.1 241.3, 373.6 209 C 367.1 176.7, 344.9 146.4, 315.7 108 Z" fill="rgb(198,131,56)" stroke="rgb(57,28,9)" stroke-width="0.6" opacity="0.94"/>
+    <path d="M 304.3 108 C 275.1 146.4, 252.9 176.7, 246.4 209 C 252.9 241.3, 275.1 271.6, 304.3 310 L 315.7 310 C 277.6 271.6, 254.5 241.3, 251.2 209 C 254.5 176.7, 277.6 146.4, 315.7 108 Z" fill="rgb(198,131,56)" stroke="rgb(57,28,9)" stroke-width="0.6" opacity="0.94"/>
+    <path d="M 304.0 108 C 308.7 146.4, 309.2 176.7, 307.6 209 C 309.2 241.3, 308.7 271.6, 304.0 310 L 316.0 310 C 311.3 271.6, 310.8 241.3, 312.4 209 C 310.8 176.7, 311.3 146.4, 316.0 108 Z" fill="rgb(210,140,60)" stroke="rgb(60,30,10)" stroke-width="0.6" opacity="1.0"/>
+
+      <!-- ══ TOP METAL SOCKET ══ -->
+      <rect x="294" y="74" width="32" height="34" rx="6" fill="url(#sock2)" stroke="#18140e" stroke-width="0.8"/>
+      <ellipse cx="310" cy="74"  rx="16" ry="4.5" fill="#4a4440" stroke="#181410" stroke-width="0.6"/>
+      <ellipse cx="310" cy="108" rx="13" ry="3.5" fill="#3a3430" stroke="#181410" stroke-width="0.5"/>
+
+      <!-- Top wood hub ring -->
+      <ellipse cx="310" cy="108" rx="12" ry="4" fill="#5a3010" stroke="#2a1206" stroke-width="0.6"/>
+
+      <!-- Bottom hub ring -->
+      <ellipse cx="310" cy="310" rx="20" ry="6.5" fill="#7a4420" stroke="#3a1e08" stroke-width="0.7"/>
+      <ellipse cx="310" cy="308" rx="14" ry="4"   fill="#9a5c2c" stroke="#3a1e08" stroke-width="0.4"/>
+
+      <!-- ══ EDISON BULB ══ -->
+      <!-- Wire socket to bulb -->
+      <line x1="310" y1="108" x2="310" y2="132" stroke="#3a3028" stroke-width="1.2"/>
+      <!-- Bulb cap -->
+      <rect x="304" y="130" width="12" height="18" rx="3" fill="#484038" stroke="#28201a" stroke-width="0.5"/>
+      <line x1="304" y1="135" x2="316" y2="135" stroke="#28201a" stroke-width="0.6"/>
+      <line x1="304" y1="140" x2="316" y2="140" stroke="#28201a" stroke-width="0.6"/>
+      <line x1="304" y1="145" x2="316" y2="145" stroke="#28201a" stroke-width="0.6"/>
+      <!-- Bulb OFF (dim grey) -->
+      <path id="si-bulb-off" d="M 304 148 C 300 161,294 177,294 193 C 294 215,300 231,310 235 C 320 231,326 215,326 193 C 326 177,320 161,316 148 Z"
+            fill="#c8c0a8" stroke="#908878" stroke-width="0.6" opacity="0.45"/>
+      <!-- Bulb ON (warm lit) -->
+      <path id="si-bulb-on" d="M 304 148 C 300 161,294 177,294 193 C 294 215,300 231,310 235 C 320 231,326 215,326 193 C 326 177,320 161,316 148 Z"
+            fill="#fff8d0" stroke="#f0b030" stroke-width="0.9" opacity="0"/>
+      <!-- Bulb base -->
+      <rect x="304" y="232" width="12" height="8" rx="2" fill="#484038" stroke="#28201a" stroke-width="0.4"/>
+      <!-- Filament (off) -->
+      <path id="si-fil-d" d="M 308 158 L 307 169 L 311 176 L 309 183 L 311 189"
+            stroke="#7a6840" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- Filament (on) -->
+      <path id="si-fil-l" d="M 308 158 L 307 169 L 311 176 L 309 183 L 311 189"
+            stroke="#ffe070" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0"/>
+      <!-- Glow bloom -->
+      <ellipse id="si-glow" cx="310" cy="193" rx="82" ry="72" fill="url(#hg2)" opacity="0"/>
+    </svg>
+
+    <!-- Turn on/off button -->
+    <button
+      id="si-btn"
+      onclick="siToggle()"
+      style="margin-top:12px;font-family:inherit;font-size:13px;font-weight:500;letter-spacing:0.05em;padding:11px 44px;border-radius:26px;border:1.5px solid #c8845a;background:transparent;color:#c8845a;cursor:pointer;transition:background .22s,color .22s,box-shadow .22s;"
+      onmouseover="this.style.background='#c8845a';this.style.color='#fff';"
+      onmouseout="if(!window._siOn){this.style.background='transparent';this.style.color='#c8845a';}"
+    >Turn on</button>
+
+    <a href="https://www.etsy.com/listing/629919328/wood-pendant-lightwooden" target="_blank"
+       style="margin-top:12px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#b0afa8;border-bottom:1px solid #d8d5cc;padding-bottom:2px;text-decoration:none;">
+      View this pendant on Etsy →
+    </a>
+  </div>
+
+
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Geometric wooden lights</span><span class="dot"> · </span>
+    <span>Made to order</span><span class="dot"> · </span>
+    <span>Custom sizes available</span><span class="dot"> · </span>
+    <span>Free shipping worldwide</span><span class="dot"> · </span>
+    <span>Klaipėda, Lithuania</span><span class="dot"> · </span>
+    <span>Scandinavian design</span><span class="dot"> · </span>
+    <span>1–3 days dispatch</span><span class="dot"> · </span>
+    <span>Star Seller on Etsy</span><span class="dot"> · </span>
+    <span>Geometric wooden lights</span><span class="dot"> · </span>
+    <span>Made to order</span><span class="dot"> · </span>
+    <span>Custom sizes available</span><span class="dot"> · </span>
+    <span>Free shipping worldwide</span><span class="dot"> · </span>
+    <span>Klaipėda, Lithuania</span><span class="dot"> · </span>
+    <span>Scandinavian design</span><span class="dot"> · </span>
+    <span>1–3 days dispatch</span><span class="dot"> · </span>
+    <span>Star Seller on Etsy</span><span class="dot"> · </span>
+  </div>
+</div>
+
+<!-- BESTSELLERS -->
+<section id="bestsellers" class="section-wrap">
+  <div class="section-head">
+    <div>
+      <p class="section-label">Most loved</p>
+      <h2 class="section-title">Bestsellers</h2>
+    </div>
+    <a href="https://www.etsy.com/shop/MastercraftShop" target="_blank" class="section-link">View all 127 →</a>
+  </div>
+
+  <!-- #1 featured -->
+  <div class="featured-card" onclick="openLB('764677304','Scandinavian Geometric Pendant — Kitchen Island','https://i.etsystatic.com/13309902/r/il/c8fca5/7675072264/il_794xN.7675072264_s5t7.jpg','$138','$185',25,15759,'https://www.etsy.com/listing/764677304/wood-pendant-light-scandinavian')">
+    <div class="featured-img"><img src="https://i.etsystatic.com/13309902/r/il/c8fca5/7675072264/il_794xN.7675072264_s5t7.jpg" alt="Scandinavian Geometric Pendant" loading="lazy"/></div>
+    <div class="featured-body">
+      <div>
+        <span class="featured-badge">✦ Etsy's Pick · 15 759 favourites</span>
+        <h3 class="featured-name">Scandinavian Geometric Wooden Ceiling Light</h3>
+        <p class="featured-desc">The most-loved design in the shop. Geometric layers of wood that create a warm, diffused glow. Fits kitchen islands, dining rooms, and living spaces perfectly.</p>
+        <div class="featured-price-row">
+          <span class="featured-price">$138</span>
+          <span class="featured-was">$185</span>
+          <span class="featured-save">−25%</span>
+        </div>
+        <p class="featured-favs">♥ 15 759 people have saved this item · Free shipping</p>
+      </div>
+      <span class="featured-cta">View on Etsy →</span>
+    </div>
+  </div>
+
+  <!-- top 4 grid -->
+  <div class="product-grid">
+
+    <div class="product-card" onclick="openLB('778544361','Scandinavian Wooden Pendant Light','https://i.etsystatic.com/13309902/r/il/074825/3446146499/il_794xN.3446146499_q75u.jpg','$138','$185',25,3150,'https://www.etsy.com/listing/778544361/wooden-ceiling-lightwood-pendant')">
+      <div class="product-thumb">
+        <img src="https://i.etsystatic.com/13309902/r/il/074825/3446146499/il_794xN.3446146499_q75u.jpg" alt="" loading="lazy"/>
+        <span class="product-hot-pill">#1 Bestseller</span>
+        <span class="product-sale-pill">−25%</span>
+      </div>
+      <div class="product-body">
+        <p class="product-name">Scandinavian Wooden Pendant Light</p>
+        <div class="product-bottom">
+          <div class="price-group"><span class="price-now">$138</span><span class="price-was">$185</span></div>
+          <div class="product-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" onclick="openLB('629919328','Modern Wooden Chandelier — Dining Light','https://i.etsystatic.com/13309902/r/il/2be547/7022005000/il_794xN.7022005000_9ihl.jpg','$138','$185',25,2086,'https://www.etsy.com/listing/629919328/wood-pendant-lightwooden')">
+      <div class="product-thumb">
+        <img src="https://i.etsystatic.com/13309902/r/il/2be547/7022005000/il_794xN.7022005000_9ihl.jpg" alt="" loading="lazy"/>
+        <span class="product-hot-pill">#2 Bestseller</span>
+        <span class="product-sale-pill">−25%</span>
+      </div>
+      <div class="product-body">
+        <p class="product-name">Modern Wooden Chandelier — Dining Light</p>
+        <div class="product-bottom">
+          <div class="price-group"><span class="price-now">$138</span><span class="price-was">$185</span></div>
+          <div class="product-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" onclick="openLB('1401155695','Geometric Wood Ceiling Lamp — Chandelier','https://i.etsystatic.com/13309902/r/il/5bab1e/6913762890/il_794xN.6913762890_l2qg.jpg','$148','$197',25,1855,'https://www.etsy.com/listing/1401155695/chandelier-lightingpendant-lightwood')">
+      <div class="product-thumb">
+        <img src="https://i.etsystatic.com/13309902/r/il/5bab1e/6913762890/il_794xN.6913762890_l2qg.jpg" alt="" loading="lazy"/>
+        <span class="product-hot-pill">#3 Bestseller</span>
+        <span class="product-sale-pill">−25%</span>
+      </div>
+      <div class="product-body">
+        <p class="product-name">Geometric Wood Ceiling Lamp — Chandelier</p>
+        <div class="product-bottom">
+          <div class="price-group"><span class="price-now">$148</span><span class="price-was">$197</span></div>
+          <div class="product-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" onclick="openLB('765406931','Rustic Boho Wood Pendant Lamp','https://i.etsystatic.com/13309902/r/il/84355c/3445838746/il_794xN.3445838746_b156.jpg','$108','$144',25,300,'https://www.etsy.com/listing/765406931/wood-lamppendant-lightwooden-lampwood')">
+      <div class="product-thumb">
+        <img src="https://i.etsystatic.com/13309902/r/il/84355c/3445838746/il_794xN.3445838746_b156.jpg" alt="" loading="lazy"/>
+        <span class="product-sale-pill">−25%</span>
+      </div>
+      <div class="product-body">
+        <p class="product-name">Rustic Boho Wood Pendant Lamp</p>
+        <div class="product-bottom">
+          <div class="price-group"><span class="price-now">$108</span><span class="price-was">$144</span></div>
+          <div class="product-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-row">
+  <div class="stat-block"><span class="stat-big">6 000+</span><span class="stat-sub">Orders shipped worldwide</span></div>
+  <div class="stat-block"><span class="stat-big">5.0 ★</span><span class="stat-sub">Average rating · 1 800+ reviews</span></div>
+  <div class="stat-block"><span class="stat-big">1–3</span><span class="stat-sub">Days to dispatch</span></div>
+  <div class="stat-block"><span class="stat-big">127</span><span class="stat-sub">Unique designs available</span></div>
+</div>
+
+<!-- ALL PRODUCTS -->
+<section id="shop" class="section-wrap">
+  <div class="section-head">
+    <div>
+      <p class="section-label">Full collection</p>
+      <h2 class="section-title">All pieces</h2>
+    </div>
+    <a href="https://www.etsy.com/shop/MastercraftShop" target="_blank" class="section-link">Browse full shop →</a>
+  </div>
+
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterProducts('all',this)">All</button>
+    <button class="filter-btn" onclick="filterProducts('sale',this)">On sale</button>
+    <button class="filter-btn" onclick="filterProducts('under150',this)">Under $150</button>
+    <button class="filter-btn" onclick="filterProducts('premium',this)">Premium</button>
+  </div>
+
+  <div class="product-grid" id="main-grid">
+
+    <div class="product-card" data-price="138" data-sale="1" onclick="openLB('643665651','Wood Pendant — Contemporary Lamp','https://i.etsystatic.com/13309902/r/il/dfffd5/3712237056/il_794xN.3712237056_e4hp.jpg','$138','$185',25,901,'https://www.etsy.com/listing/643665651/wood-pendant-light-modern-chandelier')">
+      <div class="product-thumb"><img src="https://i.etsystatic.com/13309902/r/il/dfffd5/3712237056/il_794xN.3712237056_e4hp.jpg" alt="" loading="lazy"/><span class="product-sale-pill">−25%</span></div>
+      <div class="product-body"><p class="product-name">Wood Pendant — Contemporary Lamp</p><div class="product-bottom"><div class="price-group"><span class="price-now">$138</span><span class="price-was">$185</span></div><div class="product-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></div>
+    </div>
+
+    <div class="product-card" data-price="138" data-sale="1" onclick="openLB('1024495180','Mid-Century Modern Pendant','https://i.etsystatic.com/13309902/r/il/b306ba/7099253981/il_794xN.7099253981_4lfq.jpg','$138','$185',25,861,'https://www.etsy.com/listing/1024495180/wood-pendant-lightwooden-chandeliermid')">
+      <div class="product-thumb"><img src="https://i.etsystatic.com/13309902/r/il/b306ba/7099253981/il_794xN.7099253981_4lfq.jpg" alt="" loading="lazy"/><span class="product-sale-pill">−25%</span></div>
+      <div class="product-body"><p class="product-name">Mid-Century Modern Pendant</p><div class="product-bottom"><div class="price-group"><span class="price-now">$138</span><span class="price-was">$185</span></div><div class="product-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></div>
+    </div>
+
+    <div class="product-card" data-price="138" data-sale="1" onclick="openLB('1028365940','Scandinavian Pendant — Wood Shade','https://i.etsystatic.com/13309902/r/il/4d75c3/3901959796/il_794xN.3901959796_jkmk.jpg','$138','$185',25,501,'https://www.etsy.com/listing/1028365940/scandinavian-pendant-wooden-pendant')">
+      <div class="product-thumb"><img src="https://i.etsystatic.com/13309902/r/il/4d75c3/3901959796/il_794xN.3901959796_jkmk.jpg" alt="" loading="lazy"/><span class="product-sale-pill">−25%</span></div>
+      <div class="product-body"><p class="product-name">Scandinavian Pendant — Wood Shade</p><div class="product-bottom"><div class="price-group"><span class="price-now">$138</span><span class="price-was">$185</span></div><div class="product-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></div>
+    </div>
+
+    <div class="product-card" data-price="138" data-sale="1" onclick="openLB('1757367471','Statement Entryway — Staircase Pendant','https://i.etsystatic.com/13309902/r/il/1d7b18/7722984579/il_794xN.7722984579_fbvt.jpg','$138','$185',25,61,'https://www.etsy.com/listing/1757367471/wooden-pendant-light-statement-entryway')">
+      <div class="product-thumb"><img src="https://i.etsystatic.com/13309902/r/il/1d7b18/7722984579/il_794xN.7722984579_fbvt.jpg" alt="" loading="lazy"/><span class="product-sale-pill">−25%</span></div>
+      <div class="product-body"><p class="product-name">Statement Entryway — Staircase Pendant</p><div class="product-bottom"><div class="price-group"><span class="price-now">$138</span><span class="price-was">$185</span></div><div class="product-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></div>
+    </div>
+
+    <div class="product-card" data-price="138" data-sale="1" onclick="openLB('1029638275','Scandinavian Ceiling Fixture — Living Room','https://i.etsystatic.com/13309902/r/il/fe0f58/7723424813/il_794xN.7723424813_7cnz.jpg','$138','$185',25,328,'https://www.etsy.com/listing/1029638275/ceiling-fixture-scandinavian-living-room')">
+      <div class="product-thumb"><img src="https://i.etsystatic.com/13309902/r/il/fe0f58/7723424813/il_794xN.7723424813_7cnz.jpg" alt="" loading="lazy"/><span class="product-sale-pill">−25%</span></div>
+      <div class="product-body"><p class="product-name">Scandinavian Ceiling Fixture — Living Room</p><div class="product-bottom"><div class="price-group"><span class="price-now">$138</span><span class="price-was">$185</span></div><div class="product-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></div>
+    </div>
+
+    <div class="product-card" data-price="148" data-sale="1" onclick="openLB('1387141362','Modern Wooden Light — Ceiling Fixture','https://i.etsystatic.com/13309902/r/il/a66d34/6897579726/il_794xN.6897579726_jli4.jpg','$148','$197',25,466,'https://www.etsy.com/listing/1387141362/wood-pendant-lightwooden-lightmodern')">
+      <div class="product-thumb"><img src="https://i.etsystatic.com/13309902/r/il/a66d34/6897579726/il_794xN.6897579726_jli4.jpg" alt="" loading="lazy"/><span class="product-sale-pill">−25%</span></div>
+      <div class="product-body"><p class="product-name">Modern Wooden Light — Ceiling Fixture</p><div class="product-bottom"><div class="price-group"><span class="price-now">$148</span><span class="price-was">$197</span></div><div class="product-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></div>
+    </div>
+
+    <div class="product-card" data-price="138" data-sale="1" onclick="openLB('1104896841','Nordic Pendant — Wooden Ceiling Light','https://i.etsystatic.com/13309902/r/il/80852e/7099347229/il_794xN.7099347229_3z7y.jpg','$138','$185',25,99,'https://www.etsy.com/listing/1104896841/modern-lightpendant-lightwooden-ceiling')">
+      <div class="product-thumb"><img src="https://i.etsystatic.com/13309902/r/il/80852e/7099347229/il_794xN.7099347229_3z7y.jpg" alt="" loading="lazy"/><span class="product-sale-pill">−25%</span></div>
+      <div class="product-body"><p class="product-name">Nordic Pendant — Wooden Ceiling Light</p><div class="product-bottom"><div class="price-group"><span class="price-now">$138</span><span class="price-was">$185</span></div><div class="product-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></div>
+    </div>
+
+    <div class="product-card" data-price="139" data-sale="1" onclick="openLB('1527182183','Kitchen Island Chandelier','https://i.etsystatic.com/13309902/r/il/92135d/7723432855/il_794xN.7723432855_nmya.jpg','$139','$185',25,101,'https://www.etsy.com/listing/1527182183/wood-chandelier-modern-kitchen-island')">
+      <div class="product-thumb"><img src="https://i.etsystatic.com/13309902/r/il/92135d/7723432855/il_794xN.7723432855_nmya.jpg" alt="" loading="lazy"/><span class="product-sale-pill">−25%</span></div>
+      <div class="product-body"><p class="product-name">Kitchen Island Chandelier</p><div class="product-bottom"><div class="price-group"><span class="price-now">$139</span><span class="price-was">$185</span></div><div class="product-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></div>
+    </div>
+
+    <div class="product-card" data-price="138" data-sale="1" onclick="openLB('997843887','Wooden Pendant — Indoor Hanging Light','https://i.etsystatic.com/13309902/r/il/7000d7/6982154685/il_794xN.6982154685_th3s.jpg','$138','$185',25,118,'https://www.etsy.com/listing/997843887/wooden-pendant-lightwood-pendant')">
+      <div class="product-thumb"><img src="https://i.etsystatic.com/13309902/r/il/7000d7/6982154685/il_794xN.6982154685_th3s.jpg" alt="" loading="lazy"/><span class="product-sale-pill">−25%</span></div>
+      <div class="product-body"><p class="product-name">Wooden Pendant — Indoor Hanging Light</p><div class="product-bottom"><div class="price-group"><span class="price-now">$138</span><span class="price-was">$185</span></div><div class="product-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></div>
+    </div>
+
+    <div class="product-card" data-price="138" data-sale="1" onclick="openLB('1536694555','Walnut HDF — Scandinavian Style','https://i.etsystatic.com/13309902/r/il/dfffd5/3712237056/il_794xN.3712237056_e4hp.jpg','$138','$185',25,0,'https://www.etsy.com/listing/1536694555/walnut-hdf-pendant-light-scandinavian')">
+      <div class="product-thumb"><img src="https://i.etsystatic.com/13309902/r/il/dfffd5/3712237056/il_794xN.3712237056_e4hp.jpg" alt="" loading="lazy"/><span class="product-sale-pill">−25%</span></div>
+      <div class="product-body"><p class="product-name">Walnut HDF — Scandinavian Style</p><div class="product-bottom"><div class="price-group"><span class="price-now">$138</span><span class="price-was">$185</span></div><div class="product-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></div>
+    </div>
+
+    <div class="product-card" data-price="138" data-sale="1" onclick="openLB('1525913226','Decor Lighting — Reading Nook Pendant','https://i.etsystatic.com/13309902/r/il/4f2090/5215099819/il_794xN.5215099819_s3tx.jpg','$138','$185',25,34,'https://www.etsy.com/listing/1525913226/decor-lightingwooden-pendant-lampreading')">
+      <div class="product-thumb"><img src="https://i.etsystatic.com/13309902/r/il/4f2090/5215099819/il_794xN.5215099819_s3tx.jpg" alt="" loading="lazy"/><span class="product-sale-pill">−25%</span></div>
+      <div class="product-body"><p class="product-name">Decor Lighting — Reading Nook Pendant</p><div class="product-bottom"><div class="price-group"><span class="price-now">$138</span><span class="price-was">$185</span></div><div class="product-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></div>
+    </div>
+
+    <div class="product-card" data-price="138" data-sale="1" onclick="openLB('643712505','Wood Ceiling Lamp — Geometric Light','https://i.etsystatic.com/13309902/r/il/7276dd/3759820117/il_794xN.3759820117_58t6.jpg','$138','$185',25,385,'https://www.etsy.com/listing/643712505/wood-ceiling-lampwooden-ceiling-light')">
+      <div class="product-thumb"><img src="https://i.etsystatic.com/13309902/r/il/7276dd/3759820117/il_794xN.3759820117_58t6.jpg" alt="" loading="lazy"/><span class="product-sale-pill">−25%</span></div>
+      <div class="product-body"><p class="product-name">Wood Ceiling Lamp — Geometric Light</p><div class="product-bottom"><div class="price-group"><span class="price-now">$138</span><span class="price-was">$185</span></div><div class="product-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></div>
+    </div>
+
+    <div class="product-card" data-price="492" data-sale="0" data-premium="1" onclick="openLB('684950123','Oak HDF — 3 Bulb Cluster Chandelier','https://i.etsystatic.com/13309902/r/il/2a523b/1686241725/il_794xN.1686241725_qrqj.jpg','$492','',0,0,'https://www.etsy.com/listing/684950123/oak-hdf-3-bulb-version')">
+      <div class="product-thumb"><img src="https://i.etsystatic.com/13309902/r/il/2a523b/1686241725/il_794xN.1686241725_qrqj.jpg" alt="" loading="lazy"/><span class="product-hot-pill">Premium</span></div>
+      <div class="product-body"><p class="product-name">Oak HDF — 3 Bulb Cluster Chandelier</p><div class="product-bottom"><div class="price-group"><span class="price-now">$492</span></div><div class="product-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></div>
+    </div>
+
+    <div class="product-card" data-price="138" data-sale="1" onclick="openLB('778542005','Wooden Chandelier — Scandinavian Decor','https://i.etsystatic.com/13309902/r/il/074825/3446146499/il_794xN.3446146499_q75u.jpg','$138','$185',25,0,'https://www.etsy.com/listing/778542005/wooden-chandelierwooden-ceiling')">
+      <div class="product-thumb"><img src="https://i.etsystatic.com/13309902/r/il/074825/3446146499/il_794xN.3446146499_q75u.jpg" alt="" loading="lazy"/><span class="product-sale-pill">−25%</span></div>
+      <div class="product-body"><p class="product-name">Wooden Chandelier — Scandinavian Decor</p><div class="product-bottom"><div class="price-group"><span class="price-now">$138</span><span class="price-was">$185</span></div><div class="product-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></div>
+    </div>
+
+    <div class="product-card" data-price="148" data-sale="1" onclick="openLB('1508963116','Walnut HDF — Modern Bubble Chandelier','https://i.etsystatic.com/13309902/r/il/5bab1e/6913762890/il_794xN.6913762890_l2qg.jpg','$147','$196',25,0,'https://www.etsy.com/listing/1508963116/walnut-hdf-wood-pendant-light-modern')">
+      <div class="product-thumb"><img src="https://i.etsystatic.com/13309902/r/il/5bab1e/6913762890/il_794xN.6913762890_l2qg.jpg" alt="" loading="lazy"/><span class="product-sale-pill">−25%</span></div>
+      <div class="product-body"><p class="product-name">Walnut HDF — Modern Bubble Chandelier</p><div class="product-bottom"><div class="price-group"><span class="price-now">$147</span><span class="price-was">$196</span></div><div class="product-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></div>
+    </div>
+
+    <div class="product-card" data-price="138" data-sale="1" onclick="openLB('1416535633','Wooden Pendant — Scandinavian Light','https://i.etsystatic.com/13309902/r/il/4d75c3/3901959796/il_794xN.3901959796_jkmk.jpg','$138','$185',25,0,'https://www.etsy.com/listing/1416535633/wooden-pendant-lightwooden-lightwood')">
+      <div class="product-thumb"><img src="https://i.etsystatic.com/13309902/r/il/4d75c3/3901959796/il_794xN.3901959796_jkmk.jpg" alt="" loading="lazy"/><span class="product-sale-pill">−25%</span></div>
+      <div class="product-body"><p class="product-name">Wooden Pendant — Nordic Scandinavian Light</p><div class="product-bottom"><div class="price-group"><span class="price-now">$138</span><span class="price-was">$185</span></div><div class="product-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></div>
+    </div>
+
+    <div class="product-card" data-price="109" data-sale="1" onclick="openLB('1381717374','Mid Century Light — Wood Lampshade','https://i.etsystatic.com/13309902/r/il/b306ba/7099253981/il_794xN.7099253981_4lfq.jpg','$109','$145',25,0,'https://www.etsy.com/listing/1381717374/mid-century-lightpendant-lampwood')">
+      <div class="product-thumb"><img src="https://i.etsystatic.com/13309902/r/il/b306ba/7099253981/il_794xN.7099253981_4lfq.jpg" alt="" loading="lazy"/><span class="product-sale-pill">−25%</span></div>
+      <div class="product-body"><p class="product-name">Mid Century Light — Wood Lampshade</p><div class="product-bottom"><div class="price-group"><span class="price-now">$109</span><span class="price-was">$145</span></div><div class="product-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></div>
+    </div>
+
+    <div class="product-card" data-price="138" data-sale="1" onclick="openLB('1104112374','Pendant Lights Wood — Geometric Modern','https://i.etsystatic.com/13309902/r/il/2be547/7022005000/il_794xN.7022005000_9ihl.jpg','$138','$185',25,0,'https://www.etsy.com/listing/1104112374/pendant-lights-woodchandelier')">
+      <div class="product-thumb"><img src="https://i.etsystatic.com/13309902/r/il/2be547/7022005000/il_794xN.7022005000_9ihl.jpg" alt="" loading="lazy"/><span class="product-sale-pill">−25%</span></div>
+      <div class="product-body"><p class="product-name">Pendant Lights Wood — Geometric Modern</p><div class="product-bottom"><div class="price-group"><span class="price-now">$138</span><span class="price-was">$185</span></div><div class="product-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></div>
+    </div>
+
+    <div class="product-card" data-price="138" data-sale="1" onclick="openLB('1510925490','Pendant Light — Rustic Wooden Chandelier','https://i.etsystatic.com/13309902/r/il/fe0f58/7723424813/il_794xN.7723424813_7cnz.jpg','$138','$185',25,0,'https://www.etsy.com/listing/1510925490/pendant-lightwood-lampwood-pendant')">
+      <div class="product-thumb"><img src="https://i.etsystatic.com/13309902/r/il/fe0f58/7723424813/il_794xN.7723424813_7cnz.jpg" alt="" loading="lazy"/><span class="product-sale-pill">−25%</span></div>
+      <div class="product-body"><p class="product-name">Pendant Light — Rustic Wooden Chandelier</p><div class="product-bottom"><div class="price-group"><span class="price-now">$138</span><span class="price-was">$185</span></div><div class="product-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></div>
+    </div>
+
+    <div class="product-card" data-price="138" data-sale="1" onclick="openLB('1163730195','Wooden Pendant — Light Fixture Wood','https://i.etsystatic.com/13309902/r/il/7000d7/6982154685/il_794xN.6982154685_th3s.jpg','$138','$185',25,0,'https://www.etsy.com/listing/1163730195/wooden-pendant-lightpendant-lightwooden')">
+      <div class="product-thumb"><img src="https://i.etsystatic.com/13309902/r/il/7000d7/6982154685/il_794xN.6982154685_th3s.jpg" alt="" loading="lazy"/><span class="product-sale-pill">−25%</span></div>
+      <div class="product-body"><p class="product-name">Wooden Pendant — Light Fixture Wood</p><div class="product-bottom"><div class="price-group"><span class="price-now">$138</span><span class="price-was">$185</span></div><div class="product-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></div>
+    </div>
+
+    <div class="product-card" data-price="138" data-sale="1" onclick="openLB('1522508550','Walnut HDF Pendant — Scandinavian Chandelier','https://i.etsystatic.com/13309902/r/il/dfffd5/3712237056/il_794xN.3712237056_e4hp.jpg','$138','$185',25,0,'https://www.etsy.com/listing/1522508550/walnut-hdf-pendant-light-scandinavian')">
+      <div class="product-thumb"><img src="https://i.etsystatic.com/13309902/r/il/dfffd5/3712237056/il_794xN.3712237056_e4hp.jpg" alt="" loading="lazy"/><span class="product-sale-pill">−25%</span></div>
+      <div class="product-body"><p class="product-name">Walnut HDF Pendant — Scandinavian Chandelier</p><div class="product-bottom"><div class="price-group"><span class="price-now">$138</span><span class="price-was">$185</span></div><div class="product-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></div>
+    </div>
+
+    <div class="product-card" data-price="138" data-sale="1" onclick="openLB('1028359438','Mid Century Modern Light — Wood Fixture','https://i.etsystatic.com/13309902/r/il/4d75c3/3901959796/il_794xN.3901959796_jkmk.jpg','$138','$185',25,0,'https://www.etsy.com/listing/1028359438/mid-century-modern-light-wood-light')">
+      <div class="product-thumb"><img src="https://i.etsystatic.com/13309902/r/il/4d75c3/3901959796/il_794xN.3901959796_jkmk.jpg" alt="" loading="lazy"/><span class="product-sale-pill">−25%</span></div>
+      <div class="product-body"><p class="product-name">Mid Century Modern Light — Wood Fixture</p><div class="product-bottom"><div class="price-group"><span class="price-now">$138</span><span class="price-was">$185</span></div><div class="product-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></div>
+    </div>
+
+    <!-- View all tile -->
+    <a href="https://www.etsy.com/shop/MastercraftShop" target="_blank" class="product-card" style="background:var(--accent);align-items:center;justify-content:center;text-decoration:none;min-height:220px" data-price="0" data-sale="0">
+      <div style="text-align:center;padding:28px 20px">
+        <p style="font-family:var(--serif);font-size:36px;font-weight:300;color:#fff;margin-bottom:8px">127+</p>
+        <p style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.75);margin-bottom:20px">pieces in the full shop</p>
+        <span style="display:inline-block;font-size:12px;font-weight:500;padding:10px 22px;border:1.5px solid rgba(255,255,255,0.6);border-radius:20px;color:#fff">Explore on Etsy →</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section-wrap" style="background:var(--white)">
+  <div class="story-section">
+    <div class="story-img-grid">
+      <div class="story-img-big"><img src="https://i.etsystatic.com/13309902/r/il/c8fca5/7675072264/il_794xN.7675072264_s5t7.jpg" alt="Pendant light" loading="lazy"/></div>
+      <div class="story-img-sm"><img src="https://i.etsystatic.com/13309902/r/il/2be547/7022005000/il_794xN.7022005000_9ihl.jpg" alt="Pendant light" loading="lazy"/></div>
+      <div class="story-img-sm"><img src="https://i.etsystatic.com/13309902/r/il/5bab1e/6913762890/il_794xN.6913762890_l2qg.jpg" alt="Pendant light" loading="lazy"/></div>
+    </div>
+    <div class="story-right">
+      <p class="story-tag">The maker</p>
+      <h2 class="story-title">Light crafted with care, every time</h2>
+      <blockquote class="story-quote">"I knew I wanted my son to be happy — so what better than to lead by example?"</blockquote>
+      <p class="story-body">Martin left a career in finance to start Mastercraft from a small workshop in Klaipėda, Lithuania. Nine years later, over 6 000 lights have shipped to homes across the world — each one cut, assembled and packed by hand. Every listing accepts custom sizes, cord lengths and small adjustments. If you have an idea, Martin replies quickly.</p>
+      <div class="story-author">
+        <div class="story-avatar">M</div>
+        <div>
+          <p class="story-name">Martin Buivydas</p>
+          <p class="story-role">Founder &amp; maker · Klaipėda, Lithuania</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<div class="reviews-section">
+  <div class="section-head">
+    <div>
+      <p class="section-label">Customer reviews</p>
+      <h2 class="section-title">What people say</h2>
+    </div>
+    <a href="https://www.etsy.com/shop/MastercraftShop#reviews" target="_blank" class="section-link">All 1 800+ reviews →</a>
+  </div>
+  <div class="review-grid">
+    <div class="review-card">
+      <div class="review-stars"><svg class="r-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="r-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="r-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="r-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="r-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+      <p class="review-text">"Beautiful lamp shades, final look exactly as described. Beautifully made — it looks wonderful in the bedroom."</p>
+      <p class="review-author">Linda</p><p class="review-country">🇬🇧 United Kingdom · May 2026</p>
+    </div>
+    <div class="review-card">
+      <div class="review-stars"><svg class="r-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="r-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="r-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="r-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="r-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+      <p class="review-text">"Great craftmanship, friendly seller. Martin was quick to reply and happy to accommodate the customisation I needed."</p>
+      <p class="review-author">Paul</p><p class="review-country">🇬🇧 United Kingdom · May 2026</p>
+    </div>
+    <div class="review-card">
+      <div class="review-stars"><svg class="r-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="r-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="r-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="r-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="r-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+      <p class="review-text">"I just love this work, so beautiful. Such clever design. This is the second one I've bought and it looks wonderful."</p>
+      <p class="review-author">Annie</p><p class="review-country">🇬🇧 United Kingdom · May 2026</p>
+    </div>
+    <div class="review-card">
+      <div class="review-stars"><svg class="r-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="r-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="r-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="r-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="r-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+      <p class="review-text">"Tout est parfait. Everything went smoothly from start to finish, and there were little extras in the package. Service au top!"</p>
+      <p class="review-author">Mélanie</p><p class="review-country">🇫🇷 France · May 2026</p>
+    </div>
+    <div class="review-card">
+      <div class="review-stars"><svg class="r-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="r-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="r-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="r-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="r-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+      <p class="review-text">"Beautiful light, very good customer service. Wirklich schöne Lampe — wir sind sehr begeistert über unsere neue Wohnzimmerlampe."</p>
+      <p class="review-author">Kathrin &amp; Vanessa</p><p class="review-country">🇩🇪 Germany · 2025–2026</p>
+    </div>
+    <div class="review-card">
+      <div class="review-stars"><svg class="r-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="r-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="r-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="r-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="r-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+      <p class="review-text">"LOVE these light fixtures! So well crafted and well made. Communication with the seller was stellar. Shipping was fast! Highly recommend!"</p>
+      <p class="review-author">Jessica</p><p class="review-country">🇺🇸 United States · 2025</p>
+    </div>
+  </div>
+</div>
+
+<!-- CUSTOM CTA -->
+<div id="contact" class="cta-section">
+  <div>
+    <p class="cta-label">Custom orders</p>
+    <h2 class="cta-title">Need a specific size<br>or design?</h2>
+    <p class="cta-desc">Custom sizes, cord lengths, and small design adjustments are all possible. Martin has been making bespoke pieces for nine years — wholesale enquiries are also welcome.</p>
+  </div>
+  <div class="cta-btns">
+    <a href="https://www.etsy.com/conversations/new?with_id=93825755&ref=shop_contact_items" target="_blank" class="btn-white">Request custom order</a>
+    <a href="https://www.etsy.com/shop/MastercraftShop" target="_blank" class="btn-white-outline">Browse full shop</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">Mastercraftshop</div>
+      <p class="footer-desc">Geometric wooden pendant lights, handmade to order in Klaipėda, Lithuania. Shipping worldwide since 2016. Star Seller on Etsy.</p>
+    </div>
+    <div>
+      <p class="footer-col-title">Shop</p>
+      <ul class="footer-links">
+        <li><a href="https://www.etsy.com/shop/MastercraftShop" target="_blank">All products</a></li>
+        <li><a href="https://www.etsy.com/shop/MastercraftShop?section_id=pendant-lights" target="_blank">Pendant lights</a></li>
+        <li><a href="https://www.etsy.com/shop/MastercraftShop?section_id=wall-madala-art" target="_blank">Wall art</a></li>
+        <li><a href="https://www.etsy.com/conversations/new?with_id=93825755" target="_blank">Custom order</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Information</p>
+      <ul class="footer-links">
+        <li><a href="https://www.etsy.com/shop/MastercraftShop#about" target="_blank">About Martin</a></li>
+        <li><a href="https://www.etsy.com/shop/MastercraftShop#reviews" target="_blank">Reviews</a></li>
+        <li><a href="https://www.etsy.com/shop/MastercraftShop#policies" target="_blank">Shipping &amp; returns</a></li>
+        <li><a href="https://www.facebook.com/MastercraftshopKlaipeda" target="_blank">Facebook</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 MastercraftShop — MB CIKI PIKI, Klaipėda, Lithuania</span>
+    <div class="footer-social">
+      <a href="https://www.etsy.com/shop/MastercraftShop" target="_blank">Etsy</a>
+      <a href="https://www.facebook.com/MastercraftshopKlaipeda" target="_blank">Facebook</a>
+    </div>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lb-overlay" id="lb-overlay" onclick="lbOutside(event)">
+  <div class="lb-box">
+    <div class="lb-photo">
+      <button class="lb-close" onclick="closeLB()">✕</button>
+      <img id="lb-img" src="" alt=""/>
+    </div>
+    <div class="lb-body">
+      <div>
+        <p class="lb-tag">Handmade wooden pendant light · Klaipėda, Lithuania</p>
+        <h2 class="lb-title" id="lb-title"></h2>
+        <div class="lb-price-row">
+          <span class="lb-price" id="lb-price"></span>
+          <span class="lb-was" id="lb-was"></span>
+          <span class="lb-save" id="lb-save" style="display:none"></span>
+        </div>
+        <p class="lb-favs" id="lb-favs"></p>
+        <ul class="lb-feats">
+          <li>Made to order · ships in 1–3 working days</li>
+          <li>Custom sizes &amp; cord lengths available</li>
+          <li>E26/E27 socket — Edison bulb recommended</li>
+          <li>Compatible with EU, UK &amp; US power grids</li>
+          <li>Dimmer switch compatible</li>
+        </ul>
+      </div>
+      <div>
+        <a class="lb-cta" id="lb-cta" href="#" target="_blank">View all photos &amp; buy on Etsy →</a>
+        <a class="lb-cta2" href="https://www.etsy.com/conversations/new?with_id=93825755&ref=shop_contact_items" target="_blank">Message Martin about this piece</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function openLB(id,title,img,price,was,disc,favs,url){
+  document.getElementById('lb-img').src=img;
+  document.getElementById('lb-title').textContent=title;
+  document.getElementById('lb-price').textContent=price;
+  var wasEl=document.getElementById('lb-was');
+  var saveEl=document.getElementById('lb-save');
+  wasEl.textContent=was||'';
+  if(disc>0){saveEl.textContent='−'+disc+'%';saveEl.style.display='inline';}else{saveEl.style.display='none';}
+  var favsEl=document.getElementById('lb-favs');
+  favsEl.textContent=favs>0?'♥ '+favs.toLocaleString()+' people have favourited this':'';
+  document.getElementById('lb-cta').href=url;
+  document.getElementById('lb-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLB(){
+  document.getElementById('lb-overlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+function lbOutside(e){if(e.target===document.getElementById('lb-overlay'))closeLB();}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLB();});
+
+function filterProducts(type,btn){
+  document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active')});
+  btn.classList.add('active');
+  document.querySelectorAll('#main-grid .product-card').forEach(function(card){
+    var price=parseInt(card.dataset.price||0);
+    var sale=card.dataset.sale==='1';
+    var premium=card.dataset.premium==='1';
+    var show=true;
+    if(type==='sale') show=sale;
+    else if(type==='under150') show=price>0&&price<150;
+    else if(type==='premium') show=premium||price>=300;
+    card.style.display=show?'flex':'none';
+  });
+}
+</script>
+
+
+
+
+
+
+<script>
+window._siOn = false;
+var _siFT = null;
+
+function siToggle() {
+  _siOn = !_siOn;
+  var btn    = document.getElementById('si-btn');
+  var glow   = document.getElementById('si-glow');
+  var amb    = document.getElementById('si-amb');
+  var cone   = document.getElementById('si-cone');
+  var pool   = document.getElementById('si-pool');
+  var bOn    = document.getElementById('si-bulb-on');
+  var bOff   = document.getElementById('si-bulb-off');
+  var filL   = document.getElementById('si-fil-l');
+  var filD   = document.getElementById('si-fil-d');
+
+  function op(el){ return parseFloat(el.getAttribute('opacity')||0); }
+
+  if (_siOn) {
+    btn.textContent = 'Turn off';
+    btn.style.background = '#c8845a';
+    btn.style.color = '#fff';
+    btn.style.boxShadow = '0 4px 18px rgba(200,132,90,.3)';
+    btn.onmouseover = function(){ this.style.background='#b87040'; };
+    btn.onmouseout  = function(){ this.style.background='#c8845a'; };
+    _siA(glow, 0, 0.94, 580);
+    _siA(amb,  0, 1.00, 700);
+    _siA(cone, 0, 1.00, 820);
+    _siA(pool, 0, 0.55, 950);
+    _siA(bOn,  0, 0.92, 440);
+    _siA(bOff, op(bOff), 0, 360);
+    _siA(filL, 0, 1.00, 360);
+    _siA(filD, 1, 0.00, 320);
+    _siFlicker();
+  } else {
+    btn.textContent = 'Turn on';
+    btn.style.background = 'transparent';
+    btn.style.color = '#c8845a';
+    btn.style.boxShadow = 'none';
+    btn.onmouseover = function(){ this.style.background='#c8845a';this.style.color='#fff'; };
+    btn.onmouseout  = function(){ this.style.background='transparent';this.style.color='#c8845a'; };
+    _siA(glow, op(glow), 0, 400);
+    _siA(amb,  op(amb),  0, 460);
+    _siA(cone, op(cone), 0, 400);
+    _siA(pool, op(pool), 0, 500);
+    _siA(bOn,  op(bOn),  0, 320);
+    _siA(bOff, 0, 0.45, 420);
+    _siA(filL, op(filL), 0, 300);
+    _siA(filD, 0, 1.00, 420);
+    if (_siFT){ clearTimeout(_siFT); _siFT=null; }
+  }
+}
+
+function _siFlicker(){
+  if (!_siOn) return;
+  var g = document.getElementById('si-glow');
+  var b = document.getElementById('si-bulb-on');
+  if(g) g.setAttribute('opacity',(0.78+Math.random()*0.22).toFixed(3));
+  if(b) b.setAttribute('opacity',(0.80+Math.random()*0.18).toFixed(3));
+  _siFT = setTimeout(_siFlicker, 80+Math.random()*210);
+}
+
+function _siA(el,from,to,dur){
+  if(!el)return;
+  var t0=null;
+  (function s(ts){
+    if(!t0)t0=ts;
+    var p=Math.min((ts-t0)/dur,1);
+    var e=p<.5?2*p*p:-1+(4-2*p)*p;
+    el.setAttribute('opacity',(from+(to-from)*e).toFixed(4));
+    if(p<1)requestAnimationFrame(s);
+  })(performance.now());
+}
+</script>
+
+</body>
+</html>
